@@ -5,8 +5,8 @@ Program=Micro-Cap
 Screen=1600,1200
 MCAPVersion=9.0.7.0
 Key ID=2 233 293 684
-NLCnt=36
-TXCnt=11
+NLCnt=43
+TXCnt=18
 
 [shapedef]
 Name=Battery
@@ -36,6 +36,14 @@ PolyLine=36,0
 PolyLine=48,0
 PolyLine=48,0
 Current=32,8,16,8
+
+[shapedef]
+Name=Capacitor
+Line=0,0,22,0
+Line=22,-8,22,8
+Line=26,-8,26,8
+Line=26,0,48,0
+Current=32,12,16,12
 
 [shapedef]
 Name=Ground
@@ -107,19 +115,6 @@ PinCnt=1
 Pin="PinA",0,0,-3,-7
 
 [compdef]
-Name=VCG
-Definition=Macro
-Shape=AutoMacro
-Mask=20608
-Label Offset=-4,61,21,8
-PinCnt=4
-Pin="In",a,-3,3
-Pin="Out1",a,11,0
-Pin="Out2",a,11,3
-Pin="Out3",a,11,6
-AutoRect=0,0,6,6
-
-[compdef]
 Name=Xor
 Definition=XOR
 Shape=Xor2
@@ -179,13 +174,38 @@ PinCnt=2
 Pin="Plus",6,0,-10,-4
 Pin="Minus",0,0,-14,-4
 
+[compdef]
+Name=VCG
+Definition=Macro
+Shape=AutoMacro
+Mask=4224
+Label Offset=-4,61,21,8
+PinCnt=5
+Pin="In",a,0,3
+Pin="Out1",a,14,0
+Pin="Out3",a,14,6
+Pin="C+",a,2,-4,2,0
+Pin="C-",a,12,-4
+AutoRect=2,0,12,6
+
+[compdef]
+Name=Capacitor
+Definition=Capacitor
+Shape=Capacitor
+Mask=7169
+memo=Capacitor
+Label Offset=16,12,12,12
+PinCnt=2
+Pin="Plus",6,0,-3,-5
+Pin="Minus",0,0,-14,-5
+
 [Circuit]
 Window Placement=2,3, -1,-1, -8,-30, 100,51,1166,774
 Default Object=Color=#000080
 Default Object Font=Height=-15,FStyle=0,Color=#000080,Name=Arial
 Default Object Apply Border To Text=No
 Default Object Apply Fill To Text=No
-WinBackGround Color=#FFFFFF
+WinBackGround Color=#E4E4E4
 Select Color=#FF0000
 Select Box Color=#000080
 Grid Text Color=Height=-12,FStyle=0,Color=#0000FF,Name=Verdana
@@ -196,7 +216,7 @@ Bus Color=#008000
 Pin Connection=Height=-10,FStyle=0,Color=#FF0000,Name=Arial
 Node Number=Height=-11,FStyle=0,Color=#FF00FF,Name=Arial
 Node Voltage Color=#000000
-Dynamic AC Voltage Color=#E4E4E4
+Dynamic AC Voltage Color=#1B1B1B
 Text Banner Text=Height=-15,FStyle=0,Color=#800000,Name=Arial
 Title Block Background=#C0C0C0
 Current=Height=-11,FStyle=0,Color=#0000FF,Name=Arial
@@ -234,6 +254,21 @@ Show Cross=False
 Show Attribute Text=True
 Show Grid Text=True
 
+[Object]
+Object=Rectangle
+CBorder=#000080
+Grids=46,44,93,64
+
+[Object]
+Object=Rectangle
+CBorder=#000080
+Grids=1,65,56,85
+
+[Object]
+Object=Rectangle
+CBorder=#000080
+Grids=1,44,45,64
+
 [Comp]
 Name=Voltage Source
 Grid=5,28
@@ -259,40 +294,8 @@ Style=256
 
 [Comp]
 Name=Ground
-Grid=10,40
+Grid=10,36
 Rot=7
-
-[Wire]
-Grids=32,17,37,17
-
-[Wire]
-Grids=32,14,37,14
-
-[Wire]
-Grids=32,11,37,11
-
-[Comp]
-Name=VCG
-Grid=19,11
-AutoMacroRect=7,0,13,6
-AutoMacroPinCnt=4
-AutoMacroPin="In",0,3,0,0
-AutoMacroPin="Out1",18,0,0,0
-AutoMacroPin="Out2",18,3,0,0
-AutoMacroPin="Out3",18,6,0,0
-
-[Attr]
-ONV=52,61,PART,X5
-Style=8192
-
-[Attr]
-ONV=52,75,FILE,.\VCG.MAC
-
-[Attr]
-ONV=56,0,PACKAGE,
-
-[Wire]
-Grids=23,14,24,14
 
 [Comp]
 Name=Xor
@@ -327,54 +330,19 @@ ONV=0,0,PACKAGE,
 Grids=6,14,6,16
 
 [Wire]
-Grids=6,14,19,14
+Grids=6,14,23,14
 
 [Wire]
 Grids=37,17,45,17
 
-[Comp]
-Name=VCG
-Grid=83,15
-AutoMacroRect=7,0,13,6
-AutoMacroPinCnt=4
-AutoMacroPin="In",0,3,0,0
-AutoMacroPin="Out1",18,0,0,0
-AutoMacroPin="Out2",18,3,0,0
-AutoMacroPin="Out3",18,6,0,0
-
-[Attr]
-ONV=52,61,PART,X6
-Style=8192
-
-[Attr]
-ONV=52,75,FILE,.\VCG.MAC
-
-[Attr]
-ONV=56,0,PACKAGE,
-
 [Wire]
-Grids=81,18,83,18
+Grids=75,18,81,18
 
 [Wire]
 Grids=101,21,104,21
 
 [Wire]
-Grids=104,21,104,32
-
-[Wire]
-Grids=37,32,104,32
-
-[Wire]
-Grids=37,19,37,32
-
-[Wire]
 Grids=37,19,45,19
-
-[Wire]
-Grids=101,15,117,15
-
-[Wire]
-Grids=37,4,37,11
 
 [Comp]
 Name=Voltage Source
@@ -386,7 +354,7 @@ ONV=-31,-27,PART,V5
 Style=8192
 
 [Attr]
-ONV=-48,-41,VALUE,DC 1 AC 0 0 Sin 0 2 IS_FRQ 0 0 0
+ONV=-48,-41,VALUE,DC 1 AC 0 0 Sin 0 1 IS_FRQ 0 0 0
 
 [Attr]
 ONV=0,0,PACKAGE,
@@ -396,12 +364,12 @@ ONV=0,0,Saved_Pulse,DC 0 AC 0 0 Pulse 0 1 0 IS_TF IS_TF 0 IS_T
 Style=256
 
 [Attr]
-ONV=0,0,Saved_Sin,DC 1 AC 0 0 Sin 0 2 IS_FRQ 0 0 0
+ONV=0,0,Saved_Sin,DC 1 AC 0 0 Sin 0 1 IS_FRQ 0 0 0
 Style=256
 
 [Comp]
 Name=Battery
-Grid=10,40
+Grid=10,36
 Rot=3
 
 [Attr]
@@ -409,7 +377,7 @@ ONV=-26,-27,PART,V7
 Style=8192
 
 [Attr]
-ONV=-18,-41,VALUE,5
+ONV=-18,-41,VALUE,IS_REF
 
 [Attr]
 ONV=0,0,PACKAGE,
@@ -439,19 +407,13 @@ ONV=0,0,PACKAGE,
 Grids=7,22,15,22
 
 [Wire]
-Grids=5,28,5,34
+Grids=5,28,5,30
 
 [Wire]
-Grids=5,34,10,34
-
-[Wire]
-Grids=10,34,15,34
+Grids=5,30,10,30
 
 [Wire]
 Grids=51,18,55,18
-
-[Wire]
-Grids=75,18,81,18
 
 [Comp]
 Name=L_B_S_1_201
@@ -489,7 +451,7 @@ ONV=-40,6,PART,R33
 Style=8192
 
 [Attr]
-ONV=-41,20,RESISTANCE,30k
+ONV=-41,20,RESISTANCE,F_R
 Style=8192
 
 [Attr]
@@ -502,28 +464,198 @@ Grids=57,26,62,26
 Grids=68,26,73,26
 
 [Wire]
-Grids=15,28,15,34
+Grids=15,28,15,30
+
+[Comp]
+Name=VCG
+Grid=23,11
+AutoMacroRect=2,0,12,6
+AutoMacroPinCnt=5
+AutoMacroPin="In",0,3,0,0
+AutoMacroPin="Out1",14,0,0,0
+AutoMacroPin="Out3",14,6,0,0
+AutoMacroPin="C+",2,-4,2,0
+AutoMacroPin="C-",12,-4,0,0
+
+[Attr]
+ONV=47,17,PART,X8
+Style=8192
+
+[Attr]
+ONV=-4,75,FILE,.\VCG.MAC
+
+[Attr]
+ONV=0,0,PACKAGE,
+
+[Comp]
+Name=VCG
+Grid=87,15
+AutoMacroRect=2,0,12,6
+AutoMacroPinCnt=5
+AutoMacroPin="In",0,3,0,0
+AutoMacroPin="Out1",14,0,0,0
+AutoMacroPin="Out3",14,6,0,0
+AutoMacroPin="C+",2,-4,2,0
+AutoMacroPin="C-",12,-4,0,0
+
+[Attr]
+ONV=47,16,PART,X9
+Style=8192
+
+[Attr]
+ONV=-4,75,FILE,.\VCG.MAC
+
+[Attr]
+ONV=0,0,PACKAGE,
+
+[Comp]
+Name=Capacitor
+Grid=27,7
+Rot=4
+
+[Attr]
+ONV=16,-26,PART,C1
+Style=8192
+
+[Attr]
+ONV=-2,-41,CAPACITANCE,VCG_CAP
+Style=8192
+
+[Attr]
+ONV=0,0,PACKAGE,
+
+[Comp]
+Name=Capacitor
+Grid=91,11
+Rot=4
+
+[Attr]
+ONV=16,-26,PART,C2
+Style=8192
+
+[Attr]
+ONV=4,-40,CAPACITANCE,VCG_CAP
+Style=8192
+
+[Attr]
+ONV=0,0,PACKAGE,
+
+[Wire]
+Grids=25,7,27,7
+
+[Wire]
+Grids=33,7,35,7
+
+[Wire]
+Grids=89,11,91,11
+
+[Wire]
+Grids=97,11,99,11
+
+[Wire]
+Grids=81,18,87,18
+
+[Wire]
+Grids=101,15,104,15
+
+[Comp]
+Name=VCG
+Style=ShowPinText
+ShowPinMarkers=True
+Enable=False
+Grid=38,73
+AutoMacroRect=2,0,12,6
+AutoMacroPinCnt=5
+AutoMacroPin="In",0,3,0,0
+AutoMacroPin="Out1",14,0,0,0
+AutoMacroPin="Out3",14,6,0,0
+AutoMacroPin="C+",2,-4,2,0
+AutoMacroPin="C-",12,-4,0,0
+
+[Attr]
+ONV=39,17,PART,X10
+Style=8192
+
+[Attr]
+ONV=-4,75,FILE,.\VCG.MAC
+
+[Attr]
+ONV=0,0,PACKAGE,
+
+[Comp]
+Name=L_B_S_1_201
+Style=ShowPinText
+ShowPinMarkers=True
+Enable=False
+Grid=69,46
+AutoMacroRect=2,0,18,8
+AutoMacroPinCnt=4
+AutoMacroPin="IN",0,4,0,0
+AutoMacroPin="OUT",20,4,0,0
+AutoMacroPin="R-",2,10,-17,-4
+AutoMacroPin="R+",18,10,6,-3
+
+[Attr]
+ONV=24,24,PART,X11
+Style=8192
+
+[Attr]
+ONV=24,38,FILE,.\L_B_S_1_20
+
+[Attr]
+ONV=0,0,PACKAGE,
+
+[Wire]
+Grids=37,19,37,33
+
+[Wire]
+Grids=37,33,105,33
+
+[Wire]
+Grids=105,21,105,33
+
+[Wire]
+Grids=104,21,105,21
+
+[Wire]
+Grids=10,30,15,30
+
+[Grid Text]
+Text="Low-Pass Filter's gain isþcontrolled be the meansþof R- to R+ resistor"
+Grid=49,51
+CBorder=NONE
+
+[Grid Text]
+Text="VCG is controlled via In input pin.þþOut3 is output pin. Characteristics:þ1) Vmin = 0; Vmax = 5V;þ2) Frequency is controlled via the capacitorþ    connected to C+ and C- pins."
+Grid=3,77
+CBorder=NONE
+
+[Grid Text]
+Text="Low-Pass filter"
+Grid=61,21
+CBorder=NONE
+
+[Grid Text]
+Text="Two types of generators:þ1) V4 is triangle (period is [IS_T] (IS_T), magnitude is 1)þ2) V5 is sine (frequency is [IS_FRQ] (IS_FRQ), magnitude is 1)þþV7 -- reference level ([IS_REF] (IS_REF))"
+Grid=3,54
+Formula=True
+CBorder=NONE
 
 [Grid Text]
 Text=".define IS_FRQ 1"
-Grid=61,69
+Grid=24,60
 CBorder=NONE
 
 [Grid Text]
 Text=".define IS_T 2*IS_TF"
-Grid=61,61
+Grid=3,60
 Formula=True
 CBorder=NONE
 
 [Grid Text]
 Text=".define IS_TF 500m"
-Grid=61,64
+Grid=3,63
 Formula=True
-CBorder=NONE
-
-[Grid Text]
-Text="VIN"
-Grid=19,14
 CBorder=NONE
 
 [Grid Text]
@@ -553,12 +685,32 @@ CBorder=NONE
 
 [Grid Text]
 Text="GOUT"
-Grid=117,15
+Grid=104,15
 CBorder=NONE
 
 [Grid Text]
 Text="VOUT"
-Grid=37,4
+Grid=37,11
+CBorder=NONE
+
+[Grid Text]
+Text="XIN2"
+Grid=104,21
+CBorder=NONE
+
+[Grid Text]
+Text=".define IS_REF 6"
+Grid=24,63
+CBorder=NONE
+
+[Grid Text]
+Text=".define VCG_CAP 10000n"
+Grid=3,81
+CBorder=NONE
+
+[Grid Text]
+Text=".define F_R 30k"
+Grid=49,57
 CBorder=NONE
 
 [Schematic]
@@ -670,9 +822,8 @@ T.PrintPreview=Off,0,0,1,1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=30,0
 Scale 3=0.6666666666666666
-Grid=33,45
+Grid=88,73
 
 [Page]
 Index=1
@@ -705,10 +856,10 @@ Page=1
 Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
 Comment Color=#008000
 Background Color=#FFFFFF
-Len=268
+Len=282
 .OPTIONS ITL4=50
-.OPTIONS ITL1=250                                                                                                          
-.OPTIONS PIVREL=1                                                                                                          
+.OPTIONS ITL1=250                                                                                                                 
+.OPTIONS PIVREL=1                                                                                                                 
 
 
 [Text Area]
@@ -1240,13 +1391,14 @@ SFmtY=3
 
 [WaveForm]
 Analysis=Transient
+Plt=1
 AliasID=1
 XExp=T
 YExp=v(XIN)
-XRng=0.005
+XRng=37.5
 YRng=7.5
 Options=LINEARX,LINEARY
-Range Grid X=0.001
+Range Grid X=7.5
 Range Grid Y=1.5
 WSP Title="v(XIN) vs T"
 WSP Checked=False
@@ -1266,13 +1418,14 @@ SFmtY=3
 
 [WaveForm]
 Analysis=Transient
+Plt=2
 AliasID=2
 XExp=T
 YExp=v(XIN2)
-XRng=0.005
+XRng=37.5
 YRng=7.5
 Options=LINEARX,LINEARY
-Range Grid X=0.001
+Range Grid X=7.5
 Range Grid Y=1.5
 WSP Title="v(XIN2) vs T"
 WSP Checked=False
@@ -1296,10 +1449,10 @@ Plt=4
 AliasID=5
 XExp=T
 YExp=v(FIN)
-XRng=40
+XRng=37.5
 YRng=5
 Options=LINEARX,LINEARY
-Range Grid X=8
+Range Grid X=7.5
 Range Grid Y=1
 WSP Title="v(FIN) vs T"
 WSP Checked=False
@@ -1323,10 +1476,10 @@ Plt=5
 AliasID=7
 XExp=T
 YExp=v(GIN)
-XRng=40
+XRng=37.5
 YRng=12.5
 Options=LINEARX,LINEARY
-Range Grid X=8
+Range Grid X=7.5
 Range Grid Y=2.5
 WSP Title="v(GIN) vs T"
 WSP Checked=False
@@ -1350,10 +1503,10 @@ Plt=5
 AliasID=6
 XExp=T
 YExp=v(VIN)
-XRng=40
+XRng=37.5
 YRng=12.5
 Options=LINEARX,LINEARY
-Range Grid X=8
+Range Grid X=7.5
 Range Grid Y=2.5
 Line Color=#F382F7
 Text Color=#F382F7

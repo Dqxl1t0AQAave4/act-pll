@@ -5,8 +5,8 @@ Program=Micro-Cap
 Screen=1600,1200
 MCAPVersion=9.0.7.0
 Key ID=2 233 293 684
-NLCnt=73
-TXCnt=13
+NLCnt=71
+TXCnt=15
 
 [shapedef]
 Name=Battery
@@ -32,14 +32,6 @@ PolyLine=36,0
 PolyLine=48,0
 PolyLine=48,0
 Current=32,8,16,8
-
-[shapedef]
-Name=Capacitor
-Line=0,0,22,0
-Line=22,-8,22,8
-Line=26,-8,26,8
-Line=26,0,48,0
-Current=32,12,16,12
 
 [shapedef]
 Name=DNMOS
@@ -128,17 +120,6 @@ Pin="Output",9,3,-13,-4
 Pin="VCC",4,-1,5,14
 
 [compdef]
-Name=Capacitor
-Definition=Capacitor
-Shape=Capacitor
-Mask=7169
-memo=Capacitor
-Label Offset=16,12,12,12
-PinCnt=2
-Pin="Plus",6,0,-3,-5
-Pin="Minus",0,0,-14,-5
-
-[compdef]
 Name=DNMOS
 Definition=NMOS
 Shape=DNMOS
@@ -178,7 +159,7 @@ Default Object=Color=#000080
 Default Object Font=Height=-15,FStyle=0,Color=#000080,Name=Arial
 Default Object Apply Border To Text=No
 Default Object Apply Fill To Text=No
-WinBackGround Color=#FFFFFF
+WinBackGround Color=#E4E4E4
 Select Color=#FF0000
 Select Box Color=#000080
 Grid Text Color=Height=-12,FStyle=0,Color=#0000FF,Name=Verdana
@@ -189,7 +170,7 @@ Bus Color=#008000
 Pin Connection=Height=-10,FStyle=0,Color=#FF0000,Name=Arial
 Node Number=Height=-11,FStyle=0,Color=#FF00FF,Name=Arial
 Node Voltage Color=#000000
-Dynamic AC Voltage Color=#E4E4E4
+Dynamic AC Voltage Color=#1B1B1B
 Text Banner Text=Height=-15,FStyle=0,Color=#800000,Name=Arial
 Title Block Background=#C0C0C0
 Current=Height=-11,FStyle=0,Color=#0000FF,Name=Arial
@@ -315,27 +296,8 @@ Grids=20,25,26,25
 [Wire]
 Grids=36,20,36,25
 
-[Comp]
-Name=Capacitor
-Grid=36,4
-Rot=4
-
-[Attr]
-ONV=16,-24,PART,C1
-Style=8192
-
-[Attr]
-ONV=4,12,CAPACITANCE,10000n
-Style=8192
-
-[Attr]
-ONV=0,0,PACKAGE,
-
 [Wire]
 Grids=36,4,36,11
-
-[Wire]
-Grids=42,4,45,4
 
 [Wire]
 Grids=45,4,45,17
@@ -761,6 +723,16 @@ Text="VL"
 Grid=125,10
 CBorder=NONE
 
+[Grid Text]
+Text="C+"
+Grid=36,4
+CBorder=NONE
+
+[Grid Text]
+Text="C-"
+Grid=45,4
+CBorder=NONE
+
 [Schematic]
 CurrentSection 0=0
 CurrentSection 1=0
@@ -769,7 +741,7 @@ CurrentSection 3=0
 Splitter.xs=0
 Splitter.ys=0
 TextQuad=4099
-Scale=1
+Scale=0.6666666666666666
 PrinterScale=1
 GridUser=10
 ShapeGroups="Main","Euro","DeMorgan","Polarity","Electrolytic","Main1"
@@ -869,8 +841,8 @@ Name=Main
 Scale 0=1
 Scale 1=1
 Scale 2=1
-Scale 3=1
-Grid=40,6
+Scale 3=0.6666666666666666
+Grid=65,10
 
 [Page]
 Index=1
