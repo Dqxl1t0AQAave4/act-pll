@@ -167,7 +167,7 @@ AutoRect=2,0,18,8
 Name=Resistor
 Definition=Resistor
 Shape=Resistor
-Mask=7681
+Mask=6401
 memo=Resistor
 Label Offset=18,6,8,11
 PinCnt=2
@@ -325,6 +325,10 @@ ONV=14,88,GROUND NODE,$G_DGND
 
 [Attr]
 ONV=0,0,PACKAGE,
+
+[Attr]
+ONV=0,11, ISDTOA ,TRUE
+Style=32768
 
 [Wire]
 Grids=6,14,6,16
@@ -709,7 +713,7 @@ Grid=3,81
 CBorder=NONE
 
 [Grid Text]
-Text=".define F_R 30k"
+Text=".define F_R 10k"
 Grid=49,57
 CBorder=NONE
 
@@ -823,7 +827,7 @@ Scale 0=1
 Scale 1=1
 Scale 2=1
 Scale 3=0.6666666666666666
-Grid=88,73
+Grid=35,63
 
 [Page]
 Index=1
@@ -856,10 +860,10 @@ Page=1
 Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
 Comment Color=#008000
 Background Color=#FFFFFF
-Len=282
-.OPTIONS ITL4=50
-.OPTIONS ITL1=250                                                                                                                 
-.OPTIONS PIVREL=1                                                                                                                 
+Len=357
+.OPTIONS ITL4=50 
+.OPTIONS ITL1=250                                                                                                                                                      
+.OPTIONS PIVREL=1                                                                                                                                                      
 
 
 [Text Area]
@@ -1395,10 +1399,10 @@ Plt=1
 AliasID=1
 XExp=T
 YExp=v(XIN)
-XRng=37.5
+XRng=75
 YRng=7.5
 Options=LINEARX,LINEARY
-Range Grid X=7.5
+Range Grid X=15
 Range Grid Y=1.5
 WSP Title="v(XIN) vs T"
 WSP Checked=False
@@ -1422,10 +1426,10 @@ Plt=2
 AliasID=2
 XExp=T
 YExp=v(XIN2)
-XRng=37.5
+XRng=75
 YRng=7.5
 Options=LINEARX,LINEARY
-Range Grid X=7.5
+Range Grid X=15
 Range Grid Y=1.5
 WSP Title="v(XIN2) vs T"
 WSP Checked=False
@@ -1449,10 +1453,10 @@ Plt=4
 AliasID=5
 XExp=T
 YExp=v(FIN)
-XRng=37.5
+XRng=75
 YRng=5
 Options=LINEARX,LINEARY
-Range Grid X=7.5
+Range Grid X=15
 Range Grid Y=1
 WSP Title="v(FIN) vs T"
 WSP Checked=False
@@ -1476,11 +1480,11 @@ Plt=5
 AliasID=7
 XExp=T
 YExp=v(GIN)
-XRng=37.5
-YRng=12.5
+XRng=75
+YRng=20,-5
 Options=LINEARX,LINEARY
-Range Grid X=7.5
-Range Grid Y=2.5
+Range Grid X=15
+Range Grid Y=5
 WSP Title="v(GIN) vs T"
 WSP Checked=False
 WSP NOP=0
@@ -1503,11 +1507,11 @@ Plt=5
 AliasID=6
 XExp=T
 YExp=v(VIN)
-XRng=37.5
-YRng=12.5
+XRng=75
+YRng=20,-5
 Options=LINEARX,LINEARY
-Range Grid X=7.5
-Range Grid Y=2.5
+Range Grid X=15
+Range Grid Y=5
 Line Color=#F382F7
 Text Color=#F382F7
 Rainbow=False
